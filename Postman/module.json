@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "67f0ffdf-b12e-4ed6-97c2-6cd757b47867",
+		"name": "moduleTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25282724"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "hitesh",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hesfdsfdh1@test.co",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/moduleTask/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"moduleTask",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Barrier ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/moduleTask/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"moduleTask",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Module",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQxODkxMjEsInVpZCI6IjEiLCJleHAiOjE2NzQxOTI3MjF9.Vp0-FFI7cTMeQZnaqTx05y9NIkybRe1Qkd6TSliJ17E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject\": \"Test\",\n    \"description\":\"Test\",\n    \"start_date\":\"12/01/2020\",\n    \"due_date\":\"12/24/2020\",\n    \"status\":\"New\",\n    \"priority\":\"High\",\n    \"note\":[\n        {\n            \"subject\": \"Test\",\n            \"note\":\"Test\",\n            \"attachment\":[\n                \"sdfsfs\",\"fsdfds\"\n            ]\n        },\n        {\n            \"subject\": \"Test\",\n            \"note\":\"Test\",\n            \"attachment\":[\n                \"sdfsfs\",\"fsdfds\"\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/moduleTask/module",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"moduleTask",
+						"module"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQxMjcyNDgsInVpZCI6IjEiLCJleHAiOjE2NzQxMzA4NDh9.7-CnSgcXsYiKJcMOSWgVs3TYMdFd1giKtFPY1UG8w1w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/home/Pictures/Screenshot from 2022-12-27 21-11-50.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/moduleTask/file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"moduleTask",
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Module List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQxODkxMjEsInVpZCI6IjEiLCJleHAiOjE2NzQxOTI3MjF9.Vp0-FFI7cTMeQZnaqTx05y9NIkybRe1Qkd6TSliJ17E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/moduleTask/module?filter[status]=[\"new\",\"complete\"]&filter[note]=1&filter[priority]=[\"high\"]&filter[due_date]=12/01/2023",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"moduleTask",
+						"module"
+					],
+					"query": [
+						{
+							"key": "filter[status]",
+							"value": "[\"new\",\"complete\"]",
+							"description": "array of all value selected"
+						},
+						{
+							"key": "filter[note]",
+							"value": "1",
+							"description": "1 for module with notes , 0 for module no notes , remove note filter for all modules"
+						},
+						{
+							"key": "filter[priority]",
+							"value": "[\"high\"]",
+							"description": "array of all value selected"
+						},
+						{
+							"key": "filter[due_date]",
+							"value": "12/01/2023",
+							"description": "Date required . retun modules with due date required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
